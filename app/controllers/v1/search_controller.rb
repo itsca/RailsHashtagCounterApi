@@ -1,6 +1,5 @@
 class V1::SearchController < ApplicationController
   def index
-
   end
 
   def show
@@ -10,9 +9,10 @@ class V1::SearchController < ApplicationController
       config.access_token        = "95383237-0t7iM1EJourD89Bfod4LTfBWyRhGd8h8qfCDxqKq6"
       config.access_token_secret = "tI2bTZs8JE3Ia7bJDwbwsG59y9fyGBF89DZnBcsYklVxC"
     end
-    @postName = params[:id]
+    @hashtagName = params[:id]
     @searchResults = []
-    @searchResults = $twitter.search("#" + @postName + " -rt")
+    #@searchResults = $twitter.search("#" + @hashtagName + " -rt")
+    @searchResults = $twitter.search("#" + @hashtagName)
     render json: @searchResults.count, status: :ok
   end
 end
