@@ -12,7 +12,7 @@ class V1::SearchController < ApplicationController
     @hashtagName = params[:id]
     @searchResults = []
     #@searchResults = $twitter.search("#" + @hashtagName + " -rt")
-    @searchResults = $twitter.search("#" + @hashtagName).take(5001)
+    @searchResults = $twitter.search("#" + @hashtagName).take(3001)
     @searchCount = @searchResults.count()
     render json: @searchCount, status: :ok
   end
